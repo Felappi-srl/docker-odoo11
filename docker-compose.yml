@@ -12,4 +12,4 @@ services:
       - /home/felappi/docker/odoo11/conf:/etc/odoo
       - /home/felappi/docker/odoo11/extra-addons:/mnt/extra-addons
 
-    restart: always             # run as a service  
+    restart: always       # run as a service  
