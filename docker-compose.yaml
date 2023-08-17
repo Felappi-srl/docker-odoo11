@@ -9,7 +9,7 @@ services:
             - /home/felappi/docker/odoo11/logs:/var/log/odoo
             - /home/felappi/docker/odoo11/data:/var/lib/odoo
             - /home/felappi/docker/odoo11/extra-addons:/mnt/extra-addons
-        command: -u base_fontawesome -d Pneus
+        command: odoo -d Pneus -u base_fontawesome
     proxy:
         depends_on:
             - web
