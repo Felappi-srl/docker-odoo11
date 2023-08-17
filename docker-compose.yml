@@ -1,7 +1,7 @@
 version: '2'
 services:
   odoo11:
-    image: pneus-odoo11:latest
+    image: odoo:11.0
     ports:
       - "8070:8069"
     tty: true
