@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile-odoo
         volumes:
             - /home/felappi/docker/odoo11/logs:/var/log/odoo
-            # - /home/felappi/docker/odoo11/conf:/etc/odoo
+            - /home/felappi/docker/odoo11/data:/var/lib/odoo
             - /home/felappi/docker/odoo11/extra-addons:/mnt/extra-addons
     proxy:
         depends_on:
@@ -20,4 +20,3 @@ services:
             - "8069:8069"
 volumes:
     odoo-web-data:
-    odoo-db-data:
