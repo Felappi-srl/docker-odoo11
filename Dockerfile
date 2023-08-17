@@ -1,10 +1,10 @@
 FROM odoo:11.0
 
 USER root
-RUN python -m pip install xlsxwrite
-RUN \
-  apt-get update && \
-  apt-get install git -y && \
-  ssh-keyscan -t rsa github.com > ~/.ssh/known_hosts
-RUN git clone https://github.com/OCA/queue.git /mnt/extra-addons
+RUN rm -f /etc/apt/sources.list && touch /etc/apt/sources.list
+RUN rm -f /etc/apt/sources.list.d/*
+RUN echo "deb http://archive.debian.org/debian/ stretch main contrib non-free" > /etc/apt/sources.list
+RUN echo "deb http://archive.debian.org/debian/ stretch-proposed-updates main contrib non-free" > /etc/apt/sources.list
+RUN echo "deb http://archive.debian.org/debian-security stretch/updates main contrib non-free" > /etc/apt/sources.list
+RUN apt-get update
 USER odoo
