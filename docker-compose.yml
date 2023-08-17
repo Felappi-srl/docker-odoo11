@@ -1,9 +1,11 @@
 version: '2'
 services:
-  odoo11:
+  web:
     image: odoo:11.0
     ports:
-      - "8069:8069"
+      - 89:8069
+      - 71:8071
+      - 72:8072
     tty: true
     command: -- --dev=reload
 #    command: odoo scaffold /mnt/extra-addons/test_module
