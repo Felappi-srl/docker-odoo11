@@ -5,6 +5,7 @@ USER root
 # Copy the key content, such as the config file and the enterprise addons
 COPY ./odoo.conf /etc/odoo/odoo.conf
 RUN chown odoo:odoo -R /etc/odoo/
+RUN chown odoo:odoo -R /mnt/extra-addons/
 
 USER odoo
 
