@@ -5,6 +5,7 @@ USER root
 # Copy the key content, such as the config file and the enterprise addons
 COPY ./odoo.conf /etc/odoo/odoo.conf
 RUN chown odoo:odoo -R /etc/odoo/
-RUN pip install sib_api_v3_sdk
+RUN pip3 install sib_api_v3_sdk
+RUN pip3 install pycryptodome
 USER odoo
 EXPOSE 8072
