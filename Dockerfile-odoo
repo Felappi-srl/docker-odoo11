@@ -11,9 +11,9 @@ RUN apt-get install git -y
 # Copy the key content, such as the config file and the enterprise addons
 COPY ./odoo.conf /etc/odoo/odoo.conf
 COPY ./requirements.txt /etc/odoo/requirements.txt
-# RUN export PIP_DISABLE_PIP_VERSION_CHECK=1
-# RUN pip3 install --upgrade pip -y
-# RUN pip3 install -r /etc/odoo/requirements.txt
+RUN export PIP_DISABLE_PIP_VERSION_CHECK=1
+RUN pip3 install --upgrade pip -q
+RUN pip3 install -r /etc/odoo/requirements.txt
 RUN chown odoo:odoo -R /etc/odoo/
 USER odoo
 EXPOSE 8072
