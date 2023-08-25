@@ -17,7 +17,7 @@ RUN pip3 install --upgrade pip -q
 RUN pip3 install -r /etc/odoo/requirements.txt
 RUN pip3 install paramiko==2.9.2 --prefer-binary
 RUN rm -rf /usr/local/lib/python3.5/dist-packages/sp_api
-# RUN tar -xvf /etc/odoo/sp_api.tgz /usr/local/lib/python3.5/dist-packages/ 
+RUN tar -xvf /etc/odoo/sp_api.tgz -C /usr/local/lib/python3.5/dist-packages/ 
 RUN chown odoo:odoo -R /etc/odoo/
 USER odoo
 EXPOSE 8072
