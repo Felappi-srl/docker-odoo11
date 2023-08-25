@@ -7,7 +7,7 @@ RUN echo 'deb http://archive.debian.org/debian-security/ stretch/updates main no
 RUN rm -f /etc/apt/sources.list.d/* && touch /etc/apt/sources.list.d/backports.list
 RUN echo 'deb http://archive.debian.org/debian stretch-backports main' >> /etc/apt/sources.list.d/backports.list
 RUN apt-get update
-# RUN apt-get install git
+RUN apt-get install git -y
 # Copy the key content, such as the config file and the enterprise addons
 COPY ./odoo.conf /etc/odoo/odoo.conf
 COPY ./requirements.txt /etc/odoo/requirements.txt
