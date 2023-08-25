@@ -1,7 +1,13 @@
 FROM odoo:11.0
 
 USER root
-
+RUN rm -f /etc/apt/sources.list && touch /etc/apt/sources.list
+RUN echo 'deb http://archive.debian.org/debian/ stretch main contrib non-free' > /etc/apt/sources.list
+RUN echo 'deb http://archive.debian.org/debian-security/ stretch/updates main non-free contrib' >> /etc/apt/sources.list
+RUN rm -f /etc/apt/sources.list.d/* && touch /etc/apt/sources.list.d/backports.list
+RUN echo 'deb http://archive.debian.org/debian stretch-backports main' >> /etc/apt/sources.list.d/backports.list
+RUN apt-get update
+RUN apt-get install git
 # Copy the key content, such as the config file and the enterprise addons
 COPY ./odoo.conf /etc/odoo/odoo.conf
 COPY ./requirements.txt /etc/odoo/requirements.txt
