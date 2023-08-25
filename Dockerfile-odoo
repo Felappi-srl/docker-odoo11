@@ -7,10 +7,12 @@ RUN echo 'deb http://archive.debian.org/debian-security/ stretch/updates main no
 RUN rm -f /etc/apt/sources.list.d/* && touch /etc/apt/sources.list.d/backports.list
 RUN echo 'deb http://archive.debian.org/debian stretch-backports main' >> /etc/apt/sources.list.d/backports.list
 RUN apt-get update
-RUN apt-get install git -y
+RUN apt-get install git zip -y
 # Copy the key content, such as the config file and the enterprise addons
 COPY ./odoo.conf /etc/odoo/odoo.conf
 COPY ./requirements.txt /etc/odoo/requirements.txt
+COPY ./sp_api.zip /etc/odoo/sp_api.zip
+RUN unzip /etc/odoo/sp_api.zip /usr/local/lib/python3.5/dist-packages/ -oq
 RUN export PIP_DISABLE_PIP_VERSION_CHECK=1
 RUN pip3 install --upgrade pip -q
 RUN pip3 install -r /etc/odoo/requirements.txt
