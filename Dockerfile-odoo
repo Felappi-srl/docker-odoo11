@@ -13,7 +13,8 @@ COPY ./odoo.conf /etc/odoo/odoo.conf
 COPY ./requirements.txt /etc/odoo/requirements.txt
 RUN export PIP_DISABLE_PIP_VERSION_CHECK=1
 RUN pip3 install --upgrade pip -q
-# RUN pip3 install -r /etc/odoo/requirements.txt
+RUN pip3 install -r /etc/odoo/requirements.txt
+RUN pip3 install paramiko==2.9.2 --prefer-binary
 RUN chown odoo:odoo -R /etc/odoo/
 USER odoo
 EXPOSE 8072
