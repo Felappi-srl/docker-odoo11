@@ -5,3 +5,4 @@ pycryptodome==3.17
 xmltodict==0.13.0
 mws
 python-amazon-sp-api
+mysql.connector
