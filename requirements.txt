@@ -6,4 +6,3 @@ xmltodict==0.13.0
 mws
 python-amazon-sp-api
 mysql.connector
-pysftp==0.2.9
