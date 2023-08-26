@@ -6,3 +6,4 @@ xmltodict==0.13.0
 mws
 python-amazon-sp-api
 mysql.connector
+zeep==3.4.0
