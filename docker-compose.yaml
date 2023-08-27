@@ -9,8 +9,8 @@ services:
             - /home/felappi/docker/odoo11/logs:/var/log/odoo
             - /home/felappi/docker/odoo11/data:/var/lib/odoo
             - /home/felappi/docker/odoo11/extra-addons:/mnt/addons
-        command: -- --dev=reload
-        # command: odoo -d Pneus -u all
+        # command: -- --dev=reload
+        command: -d Pneus -u all
     proxy:
         depends_on:
             - web
