@@ -8,7 +8,8 @@ services:
         volumes:
             - /home/felappi/docker/odoo11/logs:/var/log/odoo
             - /home/felappi/docker/odoo11/data:/var/lib/odoo
-            - /home/felappi/docker/odoo11/extra-addons:/mnt/addons
+            - /home/odoo/git/addons:/mnt/addons
+            - /home/odoo/git/mmac:/mnt/mmac_addons
         # command: -- --dev=reload
         command: -d Pneus -u all
     proxy:
